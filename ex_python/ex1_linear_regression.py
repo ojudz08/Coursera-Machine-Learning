@@ -7,7 +7,6 @@
 
 import pandas as pd
 import matplotlib.pyplot as plt
-from mpl_toolkits import mplot3d
 
 class Data():
     """Read txt data and create dataframe"""
