@@ -49,6 +49,14 @@ class LinearRegression():
             theta = thetaUp
         return thetaUp
 
+    # Normal equation calculates the theta
+    def normalEqn(self):
+        X = self.featureNormalize()
+        a = np.linalg.pinv(X.T.dot(X))
+        b = X.T.dot(self.y)
+        theta = a.dot(b)
+        return theta
+
     # Check whether X variables are required to normalize or not
     def X_data(self):
         if self.norm == 'no':
@@ -78,13 +86,6 @@ class LinearRegression():
         X_norm.insert(0, "X0", np.ones(self.m))
         return X_norm
 
-    def normalEqn(self):
-        X = self.featureNormalize()
-        a = np.linalg.pinv(X.T.dot(X))
-        b = X.T.dot(self.y)
-        theta = a.dot(b)
-        return theta
-
     # Returns the minimized cost function J and calculated theta for one variable
     def oneVar(self):
         calcTht = self.gradientDescent()
@@ -93,7 +94,7 @@ class LinearRegression():
         print(f'Calculated theta = [{round(calcTht[0], 4)}, {round(calcTht[1], 4)}]')
         print(f'Where minimized cost function J = {round(minJ, 4)}')
 
-
+    # Returns the minimized cost function J and calculated theta for multiple variable
     def multiVar(self):
         calcThtGD = self.gradientDescent()
         calcThtNE = self.normalEqn()
@@ -107,10 +108,10 @@ class LinearRegression():
 
 
 if __name__ == "__main__":
-    file_ex1 = r'C:\Users\ojell\Desktop\Oj\3_Coursera\ML\exercises\ex_python\data_ex1.xlsx'  # file directory
+    file_ex1 = r'C:\Users\ojell\Desktop\Oj\3_Coursera\ML\exercises\ex_python\data_ex1a.xlsx'  # file directory
     linreg1 = LinearRegression(file_ex1, theta = [0, 0], alpha = 0.01, iter = 1500, normalize = 'no')
     linreg1.oneVar()
 
-    file_ex2 = r'C:\Users\ojell\Desktop\Oj\3_Coursera\ML\exercises\ex_python\data_ex2.xlsx'  # file directory
+    file_ex2 = r'C:\Users\ojell\Desktop\Oj\3_Coursera\ML\exercises\ex_python\data_ex1b.xlsx'  # file directory
     linreg2 = LinearRegression(file_ex2, theta = [0, 0, 0], alpha = 0.01, iter=400, normalize = 'yes')
     linreg2.multiVar()

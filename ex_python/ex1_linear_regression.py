@@ -16,7 +16,7 @@ class Data():
         self.X_data = self.readData().loc[:, 'Profit']
         self.y_data = self.readData().loc[:, 'City Population']
     
-    # Define read data method
+    # Read data from the text file
     def readData(self):
         path = r'C:\Users\ojell\Desktop\Oj\3_Coursera\ML\exercises\ex1_linreg'
         df = pd.read_csv(path + r'\ex1data1.txt', header=None, names=['Profit', 'City Population'])
@@ -30,7 +30,7 @@ class PlotData():
         self.X = input_data.X_data
         self.y = input_data.y_data
     
-    # Define plot the data method
+    # Plot the data
     def plot(self):
         plt.plot(self.X, self.y, 'rx')
         plt.xlabel('City Population in 10,000')
@@ -38,7 +38,7 @@ class PlotData():
         plt.title('City Population vs Profit')
         return plt
     
-    # Define plot the hypothesis method
+    # Plot h(x) which corresponds to the fitted model - linear regression
     def plotHyp(self, theta_up):
         y = theta_up[0] + theta_up[1] * self.X
         plt = self.plot()
@@ -56,8 +56,13 @@ class linear_regression():
         self.X = input_data.X_data
         self.y = input_data.y_data
         self.m = len(self.X)
-    
-    # Define cost function method
+
+    # Hypothesis h(x)
+    def hypothesis(self, theta):
+        h = theta[0] + theta[1] * self.X
+        return h
+
+    # Cost function J(theta)
     def costFunction(self, theta):
         m = self.m
         temp = 0
@@ -67,10 +72,9 @@ class linear_regression():
         J = temp / (2 * m)
         return J
     
-    # Define update theta method
+    # Update theta values
     def thetaUpdate(self, theta):
         m = self.m
-        theta_up = []
         tmp0, tmp1, temp0, temp1 = 0, 0, 0, 0
         for i in range(0, m):
             tmp0 += (theta[0] + theta[1] * self.X[i]) - self.y[i]
@@ -81,9 +85,8 @@ class linear_regression():
     
         return theta_up
     
-    # Define gradient descent method
-    def gradientDescent(self, theta, alpha, iters):
-        m = len(self.X)
+    # Gradient descent calculates the updated J(theta) from the updated theta for each iteration
+    def gradientDescent(self, theta, iters):
         for itr in range(0, iters):
             thetaUp = self.thetaUpdate(theta)            
             J_up = self.costFunction(thetaUp)
@@ -106,11 +109,12 @@ if __name__ == "__main__":
     linreg = linear_regression()
     costF1 = linreg.costFunction(theta)
     costF2 = linreg.costFunction([-1, 2])
-    min_J = linreg.gradientDescent(theta, alpha, iterations)[0]
-    theta_updated = linreg.gradientDescent(theta, alpha, iterations)[1]
+    min_J = linreg.gradientDescent(theta, iterations)[0]
+    theta_updated = linreg.gradientDescent(theta, iterations)[1]
     print(f"With theta = {theta}\nComputed cost function J = {round(costF1, 2)}\n")
     print(f"With theta = {[-1, 2]}\nComputed cost function J = {round(costF2, 2)}\n")
-    print(f"The minimized cost function J is equal to {round(min_J, 2)} with theta = {[round(i, 4) for i in theta_updated]}\n")
+    print(f"The minimized cost function J is equal to {round(min_J, 2)}")
+    print(f"With calculated theta = {[round(i, 4) for i in theta_updated]}\n")
 
     # Plot the Data with the model (which is the h = theta_updated[0] + theta_updated[1] * x)
     plt_h = pltData.plotHyp(theta_updated)
