@@ -18,7 +18,7 @@ class Data():
     
     # Read data from the text file
     def readData(self):
-        path = r'C:\Users\ojell\Desktop\Oj\3_Coursera\ML\exercises\ex1_linreg'
+        path = '' # file path
         df = pd.read_csv(path + r'\ex1data1.txt', header=None, names=['Profit', 'City Population'])
         return df    
     
