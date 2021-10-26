@@ -9,7 +9,7 @@ import numpy as np
 import pandas as pd
 
 class LinearRegression():
-    """Linear Regression for one variable and mulitple variable"""
+    """Linear Regression for one variable and multiple variable"""
 
     def __init__(self, file, theta, alpha, iter, normalize):
         self.file = file
@@ -22,26 +22,20 @@ class LinearRegression():
         self.itr = iter
         self.norm = normalize
 
-    # Reads the data from excel
     def readData(self):
         df = pd.read_excel(self.file, sheet_name='Sheet1')
         return df
 
-    # Cost function J(theta)
     def costFunction(self, tht):
        X = self.X_data()
        hyp = X.dot(tht)
        J = np.sum(pow(hyp - self.y, 2)) / (2 * self.m)
        return J
 
-    # Gradient descent calculates the updated theta for every iteration
     def gradientDescent(self):
         X = self.X_data()
-
-        # initialize theta = [0, 0]
         theta = self.theta
 
-        # Loop until you get the minimized J
         for i in range(0, self.itr):
             hyp = X.dot(theta)
             dJ = np.multiply(X.T, hyp - self.y).T
@@ -49,7 +43,6 @@ class LinearRegression():
             theta = thetaUp
         return thetaUp
 
-    # Normal equation calculates the theta
     def normalEqn(self):
         X = self.featureNormalize()
         a = np.linalg.pinv(X.T.dot(X))
@@ -57,7 +50,6 @@ class LinearRegression():
         theta = a.dot(b)
         return theta
 
-    # Check whether X variables are required to normalize or not
     def X_data(self):
         if self.norm == 'no':
             XData = self.XOnes()
@@ -65,19 +57,16 @@ class LinearRegression():
             XData = self.featureNormalize()
         return XData
 
-    # Add ones array to X variable
     def XOnes(self):
         X = self.X
         if "X0" not in X:
             X.insert(0, "X0", np.ones(self.m))
         return X
 
-    # Calculates the minimized cost function from the updated theta
     def minCostFunction(self, thetaUp):
         minJ = self.costFunction(thetaUp)
         return minJ
 
-    # Scale features to make sure that features are on a similar scale
     def featureNormalize(self):
         X = self.X
         mu = np.mean(X)
@@ -86,7 +75,6 @@ class LinearRegression():
         X_norm.insert(0, "X0", np.ones(self.m))
         return X_norm
 
-    # Returns the minimized cost function J and calculated theta for one variable
     def oneVar(self):
         calcTht = self.gradientDescent()
         minJ = self.minCostFunction(calcTht)
@@ -94,7 +82,6 @@ class LinearRegression():
         print(f'Calculated theta = [{round(calcTht[0], 4)}, {round(calcTht[1], 4)}]')
         print(f'Where minimized cost function J = {round(minJ, 4)}')
 
-    # Returns the minimized cost function J and calculated theta for multiple variable
     def multiVar(self):
         calcThtGD = self.gradientDescent()
         calcThtNE = self.normalEqn()
