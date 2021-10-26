@@ -95,10 +95,10 @@ class LinearRegression():
 
 
 if __name__ == "__main__":
-    file_ex1 = r'C:\Users\ojell\Desktop\Oj\3_Coursera\ML\exercises\ex_python\data_ex1a.xlsx'  # file directory
+    file_ex1 = '' # file directory
     linreg1 = LinearRegression(file_ex1, theta = [0, 0], alpha = 0.01, iter = 1500, normalize = 'no')
     linreg1.oneVar()
 
-    file_ex2 = r'C:\Users\ojell\Desktop\Oj\3_Coursera\ML\exercises\ex_python\data_ex1b.xlsx'  # file directory
+    file_ex2 = ''  # file directory
     linreg2 = LinearRegression(file_ex2, theta = [0, 0, 0], alpha = 0.01, iter=400, normalize = 'yes')
     linreg2.multiVar()
