@@ -44,4 +44,8 @@ So the corresponding gradient descent algorithm for theta parameters
 
 Simultaneously update the parameters until convergence and select the proper value for the learning rate alpha.
 
+If alpha is too big, the algorithm can overshoot the minimum (it may fail to converge or diverge). [left image]
+
+If alpha is too small, the algorithm converges to the minimum at a slow rate. [right image]
+
 ![Learning Rate Alpha](/img/learning_rate_alpha.PNG?raw=true "Learning Rate Alpha")
