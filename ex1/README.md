@@ -44,4 +44,4 @@ So the corresponding gradient descent algorithm for theta parameters
 
 Simultaneously update the parameters until convergence.
 
-![image](img/learning_rate_alpha.png)
+![Learning Rate Alpha](/img/learning_rate_alpha.PNG?raw=true "Learning Rate Alpha")
