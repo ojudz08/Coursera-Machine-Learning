@@ -42,6 +42,6 @@ So the corresponding gradient descent algorithm for theta parameters
 <img src="https://latex.codecogs.com/svg.image?{\color{white}{\theta_1}:={\theta_1}-{\alpha}\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})\text{&space;&space;}\cdot\text{&space;&space;}x^{(i)}" title="https://latex.codecogs.com/svg.image?{\theta_1}:={\theta_1}-{\alpha}\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})\text{ }\cdot\text{ }x^{(i)}" />
 
 
-Simultaneously update the parameters until convergence.
+Simultaneously update the parameters until convergence and select the proper value for the learning rate alpha.
 
 ![Learning Rate Alpha](/img/learning_rate_alpha.PNG?raw=true "Learning Rate Alpha")
