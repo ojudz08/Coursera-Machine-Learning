@@ -1,6 +1,9 @@
-# Linear Regression
+# Linear Regression (1 Variable)
 
 Linear regression is a type of regression model that assumes a linear relationship between the independent variable (x) and the dependent variable (y). 
+
+## Linear Regression (1 Variable)
+
 
 ## Hypothesis
 
@@ -49,3 +52,33 @@ If alpha is too big, the algorithm can overshoot the minimum (it may fail to con
 If alpha is too small, the algorithm converges to the minimum at a slow rate. [right image]
 
 ![Learning Rate Alpha](/img/learning_rate_alpha.PNG?raw=true "Learning Rate Alpha")
+
+
+## Linear Regression (Multiple Variables)
+
+
+## Hypothesis
+
+The linear regression model for multiple variables is:
+
+<img src="https://latex.codecogs.com/svg.image?{\color{white}h_{\theta}(x)=\theta_0&plus;\theta_1x_1&plus;\theta_2x_2&plus;...&plus;\theta_nx_n" title="https://latex.codecogs.com/svg.image?h_{\theta}(x)=\theta_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n" />
+
+## Parameters
+
+<img src="https://latex.codecogs.com/svg.image?{\color{white}\theta\text{&space;for&space;n&plus;1&space;dimensional&space;vector}" title="https://latex.codecogs.com/svg.image?\theta\text{ for n+1 dimensional vector}" />
+
+## Cost Function
+
+<img src="https://latex.codecogs.com/svg.image?{\color{white}J(\theta)=\frac{1}{2m}\sum_{i=1}^{m}(h_{\theta}x^{(i)}-y^{(i)})^2" title="https://latex.codecogs.com/svg.image?J(\theta)=\frac{1}{2m}\sum_{i=1}^{m}(h_{\theta}x^{(i)}-y^{(i)})^2" />
+
+## Gradient Descent
+
+Repeat simultaneously update every j=0, ..., n
+
+<img src="https://latex.codecogs.com/svg.image?{\color{white}\theta_j:=\theta_j\alpha\frac{\delta}{\delta\theta_j}J(\theta)" title="https://latex.codecogs.com/svg.image?\theta_j:=\theta_j\alpha\frac{\delta}{\delta\theta_j}J(\theta)" />
+
+## Normal Equation
+
+The closed-form solution to linear regression. Using the formula below, you don't require any feature scaling to calculate the parameters theta and there's no need for calculation of gradient descent.
+
+<img src="https://latex.codecogs.com/svg.image?{\color{white}\theta=(X^TX)^{-1}X^T{\vec{y}}" title="https://latex.codecogs.com/svg.image?\theta=(X^TX)^{-1}X^T{\vec{y}}" />
