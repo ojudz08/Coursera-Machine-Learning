@@ -77,6 +77,16 @@ Repeat simultaneously update every j=0, ..., n
 
 <img src="https://latex.codecogs.com/svg.image?{\color{white}\theta_j:=\theta_j\alpha\frac{\delta}{\delta\theta_j}J(\theta)" title="https://latex.codecogs.com/svg.image?\theta_j:=\theta_j\alpha\frac{\delta}{\delta\theta_j}J(\theta)" />
 
+## Feature Normalization
+
+There are times that you're data set have different scale and it'll affect your estimation model. To avoid this, you may normalize your data set using mean normalization.
+
+<img src="https://latex.codecogs.com/svg.image?{\color{white}\text{Replace&space;}x_i\text{&space;with&space;}x_i-\mu_i\text{&space;to&space;make&space;features&space;have&space;approximately&space;zero&space;mean,&space;}x_0\text{&space;is&space;equal&space;to&space;1}" title="https://latex.codecogs.com/svg.image?\text{Replace }x_i\text{ with }x_i-\mu_i\text{ to make features have approximately zero mean, }x_0\text{ is equal to 1}" />
+
+or use this one
+
+<img src="https://latex.codecogs.com/svg.image?{\color{white}\frac{x_i-\mu_i}{\sigma_i}" title="https://latex.codecogs.com/svg.image?\frac{x_i-\mu_i}{\sigma_i}" />
+
 ## Normal Equation
 
 The closed-form solution to linear regression. Using the formula below, you don't require any feature scaling to calculate the parameters theta and there's no need for calculation of gradient descent.
