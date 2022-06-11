@@ -54,7 +54,7 @@ If alpha is too small, the algorithm converges to the minimum at a slow rate. [r
 ![Learning Rate Alpha](/img/learning_rate_alpha.PNG?raw=true "Learning Rate Alpha")
 
 
-## Linear Regression (Multiple Variables)
+# Linear Regression (Multiple Variables)
 
 
 ## Hypothesis
