@@ -13,7 +13,7 @@ In order to achieve this, we use the sigmoid function.
 <img src="https://latex.codecogs.com/svg.image?{\color{white}g(z)=\frac{1}{1&plus;e^{-z}}" title="https://latex.codecogs.com/svg.image?g(z)=\frac{1}{1+e^{-z}}" />
 
 
-![Sigmoid](/img/sigmoid.PNG?raw=true "Sigmoid")
+![Sigmoid](/img/sigmoid.png?raw=true "Sigmoid")
 
 
 The hypothesis will look like this
