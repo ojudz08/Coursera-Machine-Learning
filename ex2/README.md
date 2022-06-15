@@ -1,94 +1,59 @@
-# Linear Regression (1 Variable)
+# Logistic Regression
 
-Linear regression is a type of regression model that assumes a linear relationship between the independent variable (x) and the dependent variable (y). 
+Logistic regression is  mostly used for classification tasks (i.e. classifying spam emails, malignant or benign tumors). 
 
-## Linear Regression (1 Variable)
+## Logistic Function (Sigmoid Function) 
 
+We want our predicted model to have a value of between 0 and 1. 
 
-## Hypothesis
+<img src="https://latex.codecogs.com/svg.image?{\color{white}0\leq{h}_{\theta}(x)\leq&space;1" title="https://latex.codecogs.com/svg.image?0\leq{h}_{\theta}(x)\leq 1" />
 
-A simple linear regression is in the form of
+In order to achieve this, we use the sigmoid function.
 
-<img src="https://latex.codecogs.com/svg.image?{\color{white}h_{\theta}(x)=\theta_{0}&plus;\theta_{1}x" title="https://latex.codecogs.com/svg.image?h_{\theta}(x)=\theta_{0}+\theta_{1}x" />
-
-where:
-
-<img src="https://latex.codecogs.com/svg.image?{\color{white}h_{\theta}(x)\text{&space;&space;is&space;the&space;dependent&space;variable&space;y}" title="https://latex.codecogs.com/svg.image?h_{\theta}(x)\text{ is the dependent variable y}" />
-
-<img src="https://latex.codecogs.com/svg.image?{\color{white}\theta_0\text{&space;and&space;}\theta_1\text{&space;&space;are&space;the&space;parameters&space;or&space;coefficients}" title="https://latex.codecogs.com/svg.image?\theta_0\text{ and }\theta_1\text{ are the parameters or coefficients}" />
-
-<img src="https://latex.codecogs.com/svg.image?{\color{white}x\text{&space;is&space;the&space;independent&space;variable&space;x}&space;" title="https://latex.codecogs.com/svg.image?x\text{ is the independent variable x} " />
+<img src="https://latex.codecogs.com/svg.image?{\color{white}g(z)=\frac{1}{1&plus;e^{-z}}" title="https://latex.codecogs.com/svg.image?g(z)=\frac{1}{1+e^{-z}}" />
 
 
-## Cost Function
-
-To figure out the best possible values for theta that would provide the best fit line for the data, minimize the error between the predicted value and actual value.
-
-<img src="https://latex.codecogs.com/svg.image?{\color{white}J(\theta_{0},\theta_{1})=\frac{1}{2m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})^2" title="https://latex.codecogs.com/svg.image?J(\theta_{0},\theta_{1})=\frac{1}{2m}\sum_{i=1}^{m}(h_{\theta}(x^{(i)})-y^{(i)})^2" />
-
-And the goal is to:
-
-<img src="https://latex.codecogs.com/svg.image?{\color{white}\underset{{\theta_0},{\theta_1}}{minimize}=J({\theta_0},{\theta_1})" title="https://latex.codecogs.com/svg.image?\underset{{\theta_0},{\theta_1}}{minimize}=J({\theta_0},{\theta_1})" />
-
-
-## Gradient Descent
-
-The method of updating the parameters to reduce the cost function. This is done by initializing the parameters theta and change these values iteratively to reduce cost.
-
-<img src="https://latex.codecogs.com/svg.image?{\color{white}{\theta_j}:={\theta_j}-{\alpha}\frac{\delta}{\delta\theta_j}J({\theta_0},{\theta_1})" title="https://latex.codecogs.com/svg.image?{\theta_j}:={\theta_j}-{\alpha}\frac{\delta}{\delta\theta_j}J({\theta_0},{\theta_1})" />
-
-So the corresponding gradient descent algorithm for theta parameters
-
-<img src="https://latex.codecogs.com/svg.image?{\color{white}{\theta_0}:={\theta_0}-{\alpha}\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})" title="https://latex.codecogs.com/svg.image?{\theta_0}:={\theta_0}-{\alpha}\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})" />
-
-
-<img src="https://latex.codecogs.com/svg.image?{\color{white}{\theta_1}:={\theta_1}-{\alpha}\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})\text{&space;&space;}\cdot\text{&space;&space;}x^{(i)}" title="https://latex.codecogs.com/svg.image?{\theta_1}:={\theta_1}-{\alpha}\frac{1}{m}\sum_{i=1}^{m}(h_\theta(x^{(i)})-y^{(i)})\text{ }\cdot\text{ }x^{(i)}" />
-
-
-Simultaneously update the parameters until convergence and select the proper value for the learning rate alpha.
-
-If alpha is too big, the algorithm can overshoot the minimum (it may fail to converge or diverge). [left image]
-
-If alpha is too small, the algorithm converges to the minimum at a slow rate. [right image]
-
-![Learning Rate Alpha](/img/learning_rate_alpha.PNG?raw=true "Learning Rate Alpha")
-
-
-# Linear Regression (Multiple Variables)
-
+![Sigmoid](/img/sigmoid.png?raw=true "Sigmoid")
 
 ## Hypothesis
 
-The linear regression model for multiple variables is:
+The hypothesis will be represented as
 
-<img src="https://latex.codecogs.com/svg.image?{\color{white}h_{\theta}(x)=\theta_0&plus;\theta_1x_1&plus;\theta_2x_2&plus;...&plus;\theta_nx_n" title="https://latex.codecogs.com/svg.image?h_{\theta}(x)=\theta_0+\theta_1x_1+\theta_2x_2+...+\theta_nx_n" />
+<img src="https://latex.codecogs.com/svg.image?{\color{white}h=g(z)" title="https://latex.codecogs.com/svg.image?h=g(z)" />
 
-## Parameters
+.
 
-<img src="https://latex.codecogs.com/svg.image?{\color{white}\theta\text{&space;for&space;n&plus;1&space;dimensional&space;vector}" title="https://latex.codecogs.com/svg.image?\theta\text{ for n+1 dimensional vector}" />
+<img src="https://latex.codecogs.com/svg.image?{\color{white}h_{\theta}(x)=g({\theta}^Tx)" title="https://latex.codecogs.com/svg.image?h_{\theta}(x)=g({\theta}^Tx)" />
 
-## Cost Function
+and when sigmoid function is applied, hypothesis is represented as
 
-<img src="https://latex.codecogs.com/svg.image?{\color{white}J(\theta)=\frac{1}{2m}\sum_{i=1}^{m}(h_{\theta}x^{(i)}-y^{(i)})^2" title="https://latex.codecogs.com/svg.image?J(\theta)=\frac{1}{2m}\sum_{i=1}^{m}(h_{\theta}x^{(i)}-y^{(i)})^2" />
+<img src="https://latex.codecogs.com/svg.image?{\color{white}h_{\theta}(x)=\frac{1}{1&plus;e^{-\theta^T{x}}}" title="https://latex.codecogs.com/svg.image?h_{\theta}(x)=\frac{1}{1+e^{-\theta^T{x}}}" />
 
-## Gradient Descent
 
-Repeat simultaneously update every j=0, ..., n
+### Cost Function
 
-<img src="https://latex.codecogs.com/svg.image?{\color{white}\theta_j:=\theta_j\alpha\frac{\delta}{\delta\theta_j}J(\theta)" title="https://latex.codecogs.com/svg.image?\theta_j:=\theta_j\alpha\frac{\delta}{\delta\theta_j}J(\theta)" />
+We use the logarithmic loss function to calculate the cost for the classification problem.
 
-## Feature Normalization
+<img src="https://latex.codecogs.com/svg.image?{\color{white}\text{Cost}(h_{\theta}(x),y)=\left\{\begin{aligned}-log(h_{\theta}(x))\text{&space;if&space;}y=1&space;\\-log(1-h_{\theta}(x))\text{&space;if&space;}y=0\end{aligned}\right." title="https://latex.codecogs.com/svg.image?\text{Cost}(h_{\theta}(x),y)=\left\{\begin{aligned}-log(h_{\theta}(x))\text{ if }y=1 \\-log(1-h_{\theta}(x))\text{ if }y=0\end{aligned}\right." />
 
-There are times that you're data set have different scale and it'll affect your estimation model. To avoid this, you may normalize your data set using mean normalization.
+The cost function can be written as below:
 
-<img src="https://latex.codecogs.com/svg.image?{\color{white}\text{Replace&space;}x_i\text{&space;with&space;}x_i-\mu_i\text{&space;to&space;make&space;features&space;have&space;approximately&space;zero&space;mean,&space;}x_0\text{&space;is&space;equal&space;to&space;1}" title="https://latex.codecogs.com/svg.image?\text{Replace }x_i\text{ with }x_i-\mu_i\text{ to make features have approximately zero mean, }x_0\text{ is equal to 1}" />
+<img src="https://latex.codecogs.com/svg.image?{\color{white}J(\theta)=-\frac{1}{m}\left&space;[&space;\sum_{i=1}^{m}y^{(i)}\text{&space;log&space;}{h_{\theta}}(x^{(i)})\text{&space;&plus;&space;}(1-y^{(i)})\text{&space;log&space;}(1-h_{\theta}(x^{(i)}))&space;\right&space;]" title="https://latex.codecogs.com/svg.image?J(\theta)=-\frac{1}{m}\left [ \sum_{i=1}^{m}y^{(i)}\text{ log }{h_{\theta}}(x^{(i)})\text{ + }(1-y^{(i)})\text{ log }(1-h_{\theta}(x^{(i)})) \right ]" />
 
-or use this one
+### Gradient Descent
 
-<img src="https://latex.codecogs.com/svg.image?{\color{white}\frac{x_i-\mu_i}{\sigma_i}" title="https://latex.codecogs.com/svg.image?\frac{x_i-\mu_i}{\sigma_i}" />
+Similar to linear regression, the aim is to minimize the cost function,
 
-## Normal Equation
+<img src="https://latex.codecogs.com/svg.image?{\color{white}min_{\theta}J({\theta})" title="https://latex.codecogs.com/svg.image?min_{\theta}J({\theta})" />
 
-The closed-form solution to linear regression. Using the formula below, you don't require any feature scaling to calculate the parameters theta and there's no need for calculation of gradient descent.
+Repeat until the parameters converge
 
-<img src="https://latex.codecogs.com/svg.image?{\color{white}\theta=(X^TX)^{-1}X^T{\vec{y}}" title="https://latex.codecogs.com/svg.image?\theta=(X^TX)^{-1}X^T{\vec{y}}" />
+<img src="https://latex.codecogs.com/svg.image?{\color{white}\theta_j:=\theta_j-{\alpha}\frac{\delta}{\delta\theta_j}J({\theta})" title="https://latex.codecogs.com/svg.image?\theta_j:=\theta_j-{\alpha}\frac{\delta}{\delta\theta_j}J({\theta})" />
+
+.
+
+<img src="https://latex.codecogs.com/svg.image?{\color{white}\frac{{\delta}J{(\theta)}}{\delta\theta_j}=\frac{1}{m}\sum_{i=1}^{m}\left&space;(&space;h_\theta(x^{(i)})&space;-&space;y^{(i)}&space;\right&space;)x_j^{(i)}" title="https://latex.codecogs.com/svg.image?\frac{{\delta}J{(\theta)}}{\delta\theta_j}=\frac{1}{m}\sum_{i=1}^{m}\left ( h_\theta(x^{(i)}) - y^{(i)} \right )x_j^{(i)}" />
+
+.
+
+<img src="https://latex.codecogs.com/svg.image?{\color{white}\theta_j:=\theta_j-\frac{\alpha}{m}\sum_{i=1}^{m}\left&space;(&space;h_\theta(x^{(i)})&space;-&space;y^{(i)}&space;\right&space;)x_j^{(i)}" title="https://latex.codecogs.com/svg.image?\theta_j:=\theta_j-\frac{\alpha}{m}\sum_{i=1}^{m}\left ( h_\theta(x^{(i)}) - y^{(i)} \right )x_j^{(i)}" />
