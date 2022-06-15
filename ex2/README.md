@@ -15,7 +15,37 @@ In order to achieve this, we use the sigmoid function.
 
 ![Sigmoid](/img/sigmoid.png?raw=true "Sigmoid")
 
+## Hypothesis
 
-The hypothesis will look like this
+The hypothesis will be represented as
 
 <img src="https://latex.codecogs.com/svg.image?{\color{white}h=g(z)" title="https://latex.codecogs.com/svg.image?h=g(z)" />
+
+.
+
+<img src="https://latex.codecogs.com/svg.image?{\color{white}h_{\theta}(x)=g({\theta}^Tx)" title="https://latex.codecogs.com/svg.image?h_{\theta}(x)=g({\theta}^Tx)" />
+
+and when sigmoid function is applied, hypothesis is represented as
+
+<img src="https://latex.codecogs.com/svg.image?{\color{white}h_{\theta}(x)=\frac{1}{1&plus;e^{-\theta^T{x}}}" title="https://latex.codecogs.com/svg.image?h_{\theta}(x)=\frac{1}{1+e^{-\theta^T{x}}}" />
+
+
+### Cost Function
+
+We use the logarithmic loss function to calculate the cost for the classification problem.
+
+<img src="https://latex.codecogs.com/svg.image?{\color{white}\text{Cost}(h_{\theta}(x),y)=\left\{\begin{aligned}-log(h_{\theta}(x))\text{&space;if&space;}y=1&space;\\-log(1-h_{\theta}(x))\text{&space;if&space;}y=0\end{aligned}\right." title="https://latex.codecogs.com/svg.image?\text{Cost}(h_{\theta}(x),y)=\left\{\begin{aligned}-log(h_{\theta}(x))\text{ if }y=1 \\-log(1-h_{\theta}(x))\text{ if }y=0\end{aligned}\right." />
+
+The cost function can be written as below:
+
+<img src="https://latex.codecogs.com/svg.image?{\color{white}J(\theta)=-\frac{1}{m}\left&space;[&space;\sum_{i=1}^{m}y^{(i)}\text{&space;log&space;}{h_{\theta}}(x^{(i)})\text{&space;&plus;&space;}(1-y^{(i)})\text{&space;log&space;}(1-h_{\theta}(x^{(i)}))&space;\right&space;]" title="https://latex.codecogs.com/svg.image?J(\theta)=-\frac{1}{m}\left [ \sum_{i=1}^{m}y^{(i)}\text{ log }{h_{\theta}}(x^{(i)})\text{ + }(1-y^{(i)})\text{ log }(1-h_{\theta}(x^{(i)})) \right ]" />
+
+### Gradient Descent
+
+Similar to linear regression, the aim is to minimize the cost function,
+
+<img src="https://latex.codecogs.com/svg.image?{\color{white}min_{\theta}J({\theta})" title="https://latex.codecogs.com/svg.image?min_{\theta}J({\theta})" />
+
+Repeat until the parameters converge
+
+<img src="https://latex.codecogs.com/svg.image?{\color{white}\theta_j:=\theta_j-{\alpha}\frac{\delta}{\delta\theta_j}J({\theta})" title="https://latex.codecogs.com/svg.image?\theta_j:=\theta_j-{\alpha}\frac{\delta}{\delta\theta_j}J({\theta})" />
