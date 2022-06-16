@@ -95,7 +95,7 @@ pause;
 %% ============= Part 2: Regularization and Accuracies =============
 %  Optional Exercise:
 %  In this part, you will get to try different values of lambda and
-%  see how regularization affects the decision coundart
+%  see how regularization affects the decision boundary
 %
 %  Try the following values of lambda (0, 1, 10, 100).
 %
@@ -134,3 +134,5 @@ p = predict(theta, X);
 fprintf('Train Accuracy: %f\n', mean(double(p == y)) * 100);
 fprintf('Expected accuracy (with lambda = 1): 83.1 (approx)\n');
 
+fprintf('\n\nFor different values of lambda (0, 1, 10, 100), the decision boundary changes \nand the accuracy decreases as lambda value increases\n')
+fprintf('\nThe accuracy for lamba: 0, 1, 10 and 100 are 86.4, 83.1, 74.6 and 61.0, respectively\n')
