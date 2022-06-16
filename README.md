@@ -21,7 +21,7 @@ The exercises below are in Octave and Python
 
 * [Exercise 1: Linear Regression](https://github.com/ojudz08/Coursera-Machine-Learning/tree/master/ex1)
 * [Exercise 2: Logistic Regression](https://github.com/ojudz08/Coursera-Machine-Learning/tree/master/ex2)
-* Exercise 3: Multi-class Neural Networks
+* [Exercise 3: Multi-class Neural Networks](https://github.com/ojudz08/Coursera-Machine-Learning/tree/master/ex3)
 * Exercise 4: Neural Networks Learning
 * Exercise 5: Regularized Linear Regression
 * Exercise 6: Support Vector Machines
