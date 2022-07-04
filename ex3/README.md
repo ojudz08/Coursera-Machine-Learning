@@ -1,3 +1,3 @@
-# Multi-class Classiffication and Neural Networks
+# One-vs-all Logistic Regression and Neural Networks
 
 DEFINITION HERE
