@@ -23,7 +23,7 @@ The exercises below are in Octave and Python
 * [Exercise 2: Logistic Regression](https://github.com/ojudz08/Coursera-Machine-Learning/tree/master/ex2)
 * [Exercise 3: Multi-class Neural Networks](https://github.com/ojudz08/Coursera-Machine-Learning/tree/master/ex3)
 * [Exercise 4: Neural Networks Learning](https://github.com/ojudz08/Coursera-Machine-Learning/tree/master/ex4)
-* Exercise 5: Regularized Linear Regression
+* [Exercise 5: Regularized Linear Regression](https://github.com/ojudz08/Coursera-Machine-Learning/tree/master/ex5)
 * Exercise 6: Support Vector Machines
 * Exercise 7: K-means Clustering and Principal Component Analysis
 * Exercise 8: Recommender Systems
