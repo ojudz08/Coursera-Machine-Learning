@@ -1,3 +1,3 @@
-# Multi-class Classication and Neural Networks
+# Multi-class Classiffication and Neural Networks
 
 DEFINITION HERE
